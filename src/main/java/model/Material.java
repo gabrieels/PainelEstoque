@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -22,32 +23,32 @@ public class Material implements Serializable {
 	private Integer idMaterial;
 
 	@Column(name="cv_descricao")
-	private String cvDescricao;
+	private String descricao;
 
 	@Column(name="cv_familia")
-	private String cvFamilia;
+	private String familia;
 
 	@Column(name="db_preco_medio")
-	private double dbPrecoMedio;
+	private double preco_medio;
 
 	@Column(name="dt_vencimento")
-	private Timestamp dtVencimento;
+	private Timestamp vencimento;
 
 	@Column(name="nu_qnt_estoque")
-	private Integer nuQntEstoque;
+	private Integer qnt_estoque;
 
 	@Column(name="nu_qnt_minima")
-	private Integer nuQntMinima;
+	private Integer qnt_minima;
 
 	@Column(name="tp_material")
-	private String tpMaterial;
+	private String tipo_material;
 
 	@Column(name="und_material")
-	private String undMaterial;
+	private String unidade;
 
 	//bi-directional many-to-one association to CurvaAbc
 	@OneToMany(mappedBy="tbMaterial")
-	private List<CurvaAbc> tbCurvaAbcs;
+	private List<CurvaAbc> tbCurvaAbcs = new ArrayList<>();
 
 	//bi-directional many-to-one association to Indicador
 	@OneToMany(mappedBy="tbMaterial")
@@ -68,68 +69,68 @@ public class Material implements Serializable {
 		this.idMaterial = idMaterial;
 	}
 
-	public String getCvDescricao() {
-		return this.cvDescricao;
+	public String getDescricao() {
+		return this.descricao;
 	}
 
-	public void setCvDescricao(String cvDescricao) {
-		this.cvDescricao = cvDescricao;
+	public void setDescricao(String cvDescricao) {
+		this.descricao = cvDescricao;
 	}
 
-	public String getCvFamilia() {
-		return this.cvFamilia;
+	public String getFamilia() {
+		return this.familia;
 	}
 
-	public void setCvFamilia(String cvFamilia) {
-		this.cvFamilia = cvFamilia;
+	public void setFamilia(String familia) {
+		this.familia = familia;
 	}
 
-	public double getDbPrecoMedio() {
-		return this.dbPrecoMedio;
+	public double getPrecoMedio() {
+		return this.preco_medio;
 	}
 
-	public void setDbPrecoMedio(double dbPrecoMedio) {
-		this.dbPrecoMedio = dbPrecoMedio;
+	public void setPrecoMedio(double preco_medio) {
+		this.preco_medio = preco_medio;
 	}
 
-	public Timestamp getDtVencimento() {
-		return this.dtVencimento;
+	public Timestamp getVencimento() {
+		return this.vencimento;
 	}
 
-	public void setDtVencimento(Timestamp dtVencimento) {
-		this.dtVencimento = dtVencimento;
+	public void setVencimento(Timestamp vencimento) {
+		this.vencimento = vencimento;
 	}
 
 	public Integer getNuQntEstoque() {
-		return this.nuQntEstoque;
+		return this.qnt_estoque;
 	}
 
-	public void setNuQntEstoque(Integer nuQntEstoque) {
-		this.nuQntEstoque = nuQntEstoque;
+	public void setQntEstoque(Integer qnt_estoque) {
+		this.qnt_estoque = qnt_estoque;
 	}
 
 	public Integer getNuQntMinima() {
-		return this.nuQntMinima;
+		return this.qnt_minima;
 	}
 
-	public void setNuQntMinima(Integer nuQntMinima) {
-		this.nuQntMinima = nuQntMinima;
+	public void setQntMinima(Integer qnt_minima) {
+		this.qnt_minima = qnt_minima;
 	}
 
-	public String getTpMaterial() {
-		return this.tpMaterial;
+	public String getMaterial() {
+		return this.tipo_material;
 	}
 
-	public void setTpMaterial(String tpMaterial) {
-		this.tpMaterial = tpMaterial;
+	public void setTipoMaterial(String tipo_material) {
+		this.tipo_material = tipo_material;
 	}
 
-	public String getUndMaterial() {
-		return this.undMaterial;
+	public String getUnidade() {
+		return this.unidade;
 	}
 
-	public void setUndMaterial(String undMaterial) {
-		this.undMaterial = undMaterial;
+	public void setUnidade(String unidade) {
+		this.unidade = unidade;
 	}
 
 	public List<CurvaAbc> getTbCurvaAbcs() {
