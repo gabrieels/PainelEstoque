@@ -1,4 +1,4 @@
-package model;
+package persistencia.entidade;
 
 import javax.annotation.PostConstruct;
 import java.io.Serializable;

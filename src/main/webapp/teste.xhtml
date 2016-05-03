@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Hello JSF!</title>
+</h:head>
+<h:body> 
+
+
+#{materialController.carregar()}
+<p:dataTable id="tab" var="x" value="#{materialController.lista_material}">
+<p:column >
+<p:outputLabel value="#{x.idMaterial}"></p:outputLabel>
+</p:column>
+
+<p:column >
+<p:outputLabel value="#{x.descricao}"></p:outputLabel>
+</p:column>
+
+<p:column >
+<p:outputLabel value="#{x.familia}"></p:outputLabel>
+</p:column>
+</p:dataTable>
+</h:body>
+</html>

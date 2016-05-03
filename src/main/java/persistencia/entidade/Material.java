@@ -1,4 +1,4 @@
-package model;
+package persistencia.entidade;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -137,7 +137,7 @@ public class Material implements Serializable {
 		return this.tbCurvaAbcs;
 	}
 
-	public void setTbCurvaAbcs(List<CurvaAbc> tbCurvaAbcs) {
+	public void setTbCurvaAbc(List<CurvaAbc> tbCurvaAbcs) {
 		this.tbCurvaAbcs = tbCurvaAbcs;
 	}
 
@@ -146,6 +146,15 @@ public class Material implements Serializable {
 		tbCurvaAbc.setTbMaterial(this);
 
 		return tbCurvaAbc;
+	}
+
+	@Override
+	public String toString() {
+		return "Material [idMaterial=" + idMaterial + ", descricao=" + descricao + ", familia=" + familia
+				+ ", preco_medio=" + preco_medio + ", vencimento=" + vencimento + ", qnt_estoque=" + qnt_estoque
+				+ ", qnt_minima=" + qnt_minima + ", tipo_material=" + tipo_material + ", unidade=" + unidade
+				+ ", tbCurvaAbcs=" + tbCurvaAbcs + ", tbIndicadors=" + tbIndicadors + ", tbRelatorios=" + tbRelatorios
+				+ "]";
 	}
 
 	public CurvaAbc removeTbCurvaAbc(CurvaAbc tbCurvaAbc) {

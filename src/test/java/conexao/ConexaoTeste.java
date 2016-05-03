@@ -1,8 +1,8 @@
-package conexao;
+/*package conexao;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import dao.Conexao;
+import persistencia.jdbc.Conexao;
 
 public class ConexaoTeste {
 
@@ -20,3 +20,4 @@ public class ConexaoTeste {
 		System.out.println("Conexao encerrada!");
 	}
 }
+*/

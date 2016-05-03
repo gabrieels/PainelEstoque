@@ -1,4 +1,4 @@
-package dao;
+package persistencia.jdbc;
 
 public class IndicadorDAO {
 
