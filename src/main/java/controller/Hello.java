@@ -13,6 +13,6 @@ public class Hello {
 	}
 
 	public String getMessage() {
-		return "Hello World!";
+		return "Hello World! testando";
 	}
 }
