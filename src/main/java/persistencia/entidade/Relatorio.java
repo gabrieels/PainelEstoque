@@ -4,31 +4,39 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
-
 /**
  * The persistent class for the tb_relatorio database table.
  * 
  */
 @Entity
-@Table(name="tb_relatorio")
-@NamedQuery(name="Relatorio.findAll", query="SELECT r FROM Relatorio r")
+@Table(name = "tb_relatorio")
+@NamedQuery(name = "Relatorio.findAll", query = "SELECT r FROM Relatorio r")
 public class Relatorio implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id_relatorio")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id_relatorio")
 	private Integer idRelatorio;
 
-	@Column(name="dt_final")
-	private Timestamp dtFinal;
+	@Column(name = "id_material")
+	private Integer idMaterial;
 
-	@Column(name="dt_inicial")
-	private Timestamp dtInicial;
+	@Column(name = "dt_saida")
+	private Timestamp dtSaida;
 
-	//bi-directional many-to-one association to Material
+	@Column(name = "in_qnt_saida")
+	private Integer qnt_saida;
+
+	@Column(name = "db_preco_medio")
+	private Double precoMedio;
+
+	@Column(name = "cv_descricao")
+	private String descricao;
+
+	// bi-directional many-to-one association to Material
 	@ManyToOne
-	@JoinColumn(name="id_material")
+	@JoinColumn(name = "id_material")
 	private Material tbMaterial;
 
 	public Relatorio() {
@@ -42,20 +50,44 @@ public class Relatorio implements Serializable {
 		this.idRelatorio = idRelatorio;
 	}
 
-	public Timestamp getDtFinal() {
-		return this.dtFinal;
+	public Integer getIdMaterial() {
+		return idMaterial;
 	}
 
-	public void setDtFinal(Timestamp dtFinal) {
-		this.dtFinal = dtFinal;
+	public void setIdMaterial(Integer idMaterial) {
+		this.idMaterial = idMaterial;
 	}
 
-	public Timestamp getDtInicial() {
-		return this.dtInicial;
+	public Timestamp getDtSaida() {
+		return dtSaida;
 	}
 
-	public void setDtInicial(Timestamp dtInicial) {
-		this.dtInicial = dtInicial;
+	public void setDtSaida(Timestamp dtSaida) {
+		this.dtSaida = dtSaida;
+	}
+
+	public Integer getQnt_saida() {
+		return qnt_saida;
+	}
+
+	public void setQnt_saida(Integer qnt_saida) {
+		this.qnt_saida = qnt_saida;
+	}
+
+	public Double getPrecoMedio() {
+		return precoMedio;
+	}
+
+	public void setPrecoMedio(Double precoMedio) {
+		this.precoMedio = precoMedio;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	public Material getTbMaterial() {
@@ -64,6 +96,13 @@ public class Relatorio implements Serializable {
 
 	public void setTbMaterial(Material tbMaterial) {
 		this.tbMaterial = tbMaterial;
+	}
+
+	@Override
+	public String toString() {
+		return "Relatorio [idRelatorio=" + idRelatorio + ", idMaterial=" + idMaterial + ", dtSaida=" + dtSaida
+				+ ", qnt_saida=" + qnt_saida + ", precoMedio=" + precoMedio + ", descricao=" + descricao
+				 + "]";
 	}
 
 }

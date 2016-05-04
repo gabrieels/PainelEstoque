@@ -9,8 +9,6 @@ import java.util.List;
 
 import persistencia.entidade.Material;
 
-
-
 public class MaterialDAO {
 	private Connection con = Conexao.getConnection();
 
@@ -18,6 +16,7 @@ public class MaterialDAO {
 
 		String sql = "Select * from tb_material";
 		List<Material> lista = new ArrayList<Material>();
+		
 		try (PreparedStatement preparador = con.prepareStatement(sql)) {
 
 			ResultSet resultado = preparador.executeQuery();
@@ -33,7 +32,6 @@ public class MaterialDAO {
 				material.setQntMinima(resultado.getInt("nu_qnt_minima"));
 				material.setTipoMaterial(resultado.getString("tp_material"));
 				material.setUnidade(resultado.getString("und_material"));
-				
 				
 				// Adicionando usuario na lista
 				lista.add(material);
