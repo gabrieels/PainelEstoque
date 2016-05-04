@@ -9,6 +9,9 @@ import org.primefaces.model.chart.CategoryAxis;
 import org.primefaces.model.chart.LineChartModel;
 import org.primefaces.model.chart.ChartSeries;
 import org.primefaces.model.chart.LineChartSeries;
+import org.primefaces.model.chart.MeterGaugeChartModel;
+import java.util.ArrayList;
+import java.util.List;
 
 @ManagedBean
 public class ChartView implements Serializable {
@@ -16,12 +19,16 @@ public class ChartView implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private LineChartModel lineModel1;
 	private LineChartModel lineModel2;
+	
+	private MeterGaugeChartModel meterGaugeModel1;
+    private MeterGaugeChartModel meterGaugeModel2;
 
 	@PostConstruct
 	public void init() {
 		createLineModels();
+		createMeterGaugeModels();
 	}
-
+	
 	public LineChartModel getLineModel1() {
 		return lineModel1;
 	}
@@ -100,4 +107,39 @@ public class ChartView implements Serializable {
 
 		return model;
 	}
+
+	public MeterGaugeChartModel getMeterGaugeModel1() {
+        return meterGaugeModel1;
+    }
+     
+    public MeterGaugeChartModel getMeterGaugeModel2() {
+        return meterGaugeModel2;
+    }
+ 
+    private MeterGaugeChartModel initMeterGaugeModel() {
+        List<Number> intervals = new ArrayList<Number>(){{
+            add(20);
+            add(50);
+            add(120);
+            add(220);
+        }};
+         
+        return new MeterGaugeChartModel(140, intervals);
+    }
+ 
+    private void createMeterGaugeModels() {
+        meterGaugeModel1 = initMeterGaugeModel();
+        meterGaugeModel1.setTitle("MeterGauge Chart");
+        meterGaugeModel1.setGaugeLabel("km/h");
+         
+        meterGaugeModel2 = initMeterGaugeModel();
+        meterGaugeModel2.setTitle("Indicadores");
+        meterGaugeModel2.setSeriesColors("cc6666,E7E658,93b75f,66cc66");
+        //meterGaugeModel2.setGaugeLabel("km/h");
+        meterGaugeModel2.setGaugeLabelPosition("bottom");
+        meterGaugeModel2.setShowTickLabels(false);
+        meterGaugeModel2.setLabelHeightAdjust(110);
+        meterGaugeModel2.setIntervalOuterRadius(100);
+    }
+
 }
