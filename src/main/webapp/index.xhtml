@@ -5,28 +5,48 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>Hello JSF!</title>
+	<title>Painel de Estoque</title>
+	<link rel="shortcut icon" href="icon.ico" />
 </h:head>
 <h:body>
 
-	<!-- "#{hello.message} <p:panel header="Teste"
-		style="width:50%">
-		<p:button value="Teste" />
-	</p:panel>
-	*/
-	 -->
-	<!-- Veja o bean ChartView.java -->
+	<!-- Grafico da Curva ABC -->
+	<h:form>
+		<p:growl id="growl" showDetail="true" />
+		<p:panel align="center" header="Curva ABC" style="width:35%">
+			<h:panelGrid columns="1" columnClasses="left,right"
+				style="width:100%">
+				<p:chart type="pie" model="#{chartView.pieModel1}"
+					style="width:400px;height:300px">
+					<p:ajax event="itemSelect" listener="#{chartView.itemSelect}"
+						update="growl" />
+				</p:chart>
+			</h:panelGrid>
+		</p:panel>
+	</h:form>
 
 
-	<p:chart type="line" model="#{chartView.lineModel1}"
-		style="height:300px;" />
+	<!-- Grafico dos Indicadores -->
 
-	<p:chart type="line" model="#{chartView.lineModel2}"
-		style="height:300px;" />
-	<p:chart type="metergauge" model="#{chartView.meterGaugeModel1}"
-		style="width:400px;height:250px" />
+	<div align="left">
+		<h:form>
+			<p:panel header="Indicadores" style="width:35%">
+				<p:chart type="metergauge" model="#{chartView.meterGaugeModel2}"
+					style="width:400px;height:300px" />
+			</p:panel>
+		</h:form>
+	</div>
 
-	<p:chart type="metergauge" model="#{chartView.meterGaugeModel2}"
-		style="width:400px;height:250px" />
+	<!-- Grafico do Relatório Mensal -->
+	<h:form>
+		<p:panel header="Relatório Mensal" style="width:99%">
+			<!--Grafico do Relatorio Mensal -->
+			<p:chart type="line" model="#{chartView.lineModel1}"
+				style="height:300px;" />
+		</p:panel>
+	</h:form>
+
+
+
 </h:body>
 </html>
