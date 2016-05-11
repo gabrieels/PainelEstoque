@@ -9,41 +9,40 @@
 	<link rel="shortcut icon" href="icon.ico" />
 </h:head>
 <h:body>
-
-	<!-- Grafico da Curva ABC -->
+	<!-- Grafico da Curva ABC -->	
 	<h:form>
 		<p:growl id="growl" showDetail="true" />
-		<p:panel align="center" header="Curva ABC" style="width:35%">
-			<h:panelGrid columns="1" columnClasses="left,right"
-				style="width:100%">
-				<p:chart type="pie" model="#{chartView.pieModel1}"
-					style="width:400px;height:300px">
-					<p:ajax event="itemSelect" listener="#{chartView.itemSelect}"
-						update="growl" />
+		<h:panelGrid style="position: relative">
+			<p:panel header="Curva ABC" style="float: left">
+				<p:chart type="pie" model="#{chartView.pieModel}"
+					style="width:450px;height:300px">
 				</p:chart>
-			</h:panelGrid>
-		</p:panel>
-	</h:form>
-
-
-	<!-- Grafico dos Indicadores -->
-
-	<div align="left">
-		<h:form>
-			<p:panel header="Indicadores" style="width:35%">
-				<p:chart type="metergauge" model="#{chartView.meterGaugeModel2}"
-					style="width:400px;height:300px" />
 			</p:panel>
-		</h:form>
-	</div>
 
-	<!-- Grafico do Relatório Mensal -->
-	<h:form>
-		<p:panel header="Relatório Mensal" style="width:99%">
-			<!--Grafico do Relatorio Mensal -->
-			<p:chart type="line" model="#{chartView.lineModel1}"
-				style="height:300px;" />
-		</p:panel>
+			<!--  <p:commandButton value="Salvar" disabled="false" image="ui-icon-disk"/> -->
+
+			<!-- Grafico dos Indicadores -->
+			<p:panel header="Indicadores" style="float: right;">
+				<div align="right">
+					<a href="#"><img src="exibirdetalhes.jpg" /></a>
+				</div>
+				<p:chart type="metergauge" model="#{chartView.meterGaugeModel}"
+					style="width:450px;height:300px">
+				</p:chart>
+			</p:panel>
+
+		</h:panelGrid>
+
+		<!-- Grafico do Relatório Mensal -->
+		<div align="center">
+			<h:panelGrid style="margin-top:51px; width:80%">
+				<p:panel header="Relatório Mensal">
+					<!--Grafico do Relatorio Mensal -->
+					<p:chart type="line" model="#{chartView.lineModel}"
+						style="height:300px;" />
+				</p:panel>
+			</h:panelGrid>
+		</div>
 	</h:form>
 
 

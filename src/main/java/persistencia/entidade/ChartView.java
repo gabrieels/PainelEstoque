@@ -24,63 +24,56 @@ import java.util.List;
 public class ChartView implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private LineChartModel lineModel1;
-	
-	private MeterGaugeChartModel meterGaugeModel1;
-	private MeterGaugeChartModel meterGaugeModel2;
-
-	private PieChartModel pieModel1;
-
+	private LineChartModel lineModel;
+	private MeterGaugeChartModel meterGaugeModel;
+	private PieChartModel pieModel;
+	int A = 20;
+	int B = 30;
+	int C = 50;
 	@PostConstruct
 	public void init() {
 		createMeterGaugeModels();
-		createPieModels(); 
+		createPieModels();
 		createLineModels();
 
 	}
 
-	
-	
 	// View do grafico Curva ABC - Grafico de Pizza
 
 	private void createPieModels() {
-		createPieModel1();
+		createPieModel();
 	}
 
-	public PieChartModel getPieModel1() {
-		return pieModel1;
+	public PieChartModel getPieModel() {
+		return pieModel;
 	}
+	
+	private void createPieModel() {
+		pieModel = new PieChartModel();
 
-	private void createPieModel1() {
-		pieModel1 = new PieChartModel();
-
-		pieModel1.set("Classe A", 20);
-		pieModel1.set("Classe B", 30);
-		pieModel1.set("Classe C", 50);
-		pieModel1.setSeriesColors("66cc66,E7E658,cc6666");
-		//pieModel1.setTitle("Curva ABC");
-		pieModel1.setLegendPosition("w");
+		pieModel.set("Classe A", A);
+		pieModel.set("Classe B", B);
+		pieModel.set("Classe C", C);
+		pieModel.setSeriesColors("66cc66,E7E658,cc6666");
+		// pieModel1.setTitle("Curva ABC");
+		pieModel.setLegendPosition("S");
 	}
 	// ####################################################################################################\\
 	// View dos Indicadores
 
 	private void createMeterGaugeModels() {
 
-		meterGaugeModel2 = initMeterGaugeModel();
-		meterGaugeModel2.setSeriesColors("cc6666,E7E658,93b75f,66cc66");
-		meterGaugeModel2.setGaugeLabel("70%");
-		meterGaugeModel2.setGaugeLabelPosition("bottom");
-		meterGaugeModel2.setShowTickLabels(false);
-		//meterGaugeModel2.setLabelHeightAdjust(110);
-		meterGaugeModel2.setIntervalOuterRadius(100);
+		meterGaugeModel = initMeterGaugeModel();
+		meterGaugeModel.setSeriesColors("cc6666,E7E658,93b75f,66cc66");
+		meterGaugeModel.setGaugeLabel("70%");
+		meterGaugeModel.setGaugeLabelPosition("bottom");
+		meterGaugeModel.setShowTickLabels(false);
+		// meterGaugeModel.setLabelHeightAdjust(110);
+		meterGaugeModel.setIntervalOuterRadius(100);
 	}
 
-	public MeterGaugeChartModel getMeterGaugeModel1() {
-		return meterGaugeModel1;
-	}
-
-	public MeterGaugeChartModel getMeterGaugeModel2() {
-		return meterGaugeModel2;
+	public MeterGaugeChartModel getMeterGaugeModel() {
+		return meterGaugeModel;
 	}
 
 	private MeterGaugeChartModel initMeterGaugeModel() {
@@ -99,18 +92,18 @@ public class ChartView implements Serializable {
 	// ####################################################################################################\\
 	// View do Relatorio Mensal
 	private void createLineModels() {
-		lineModel1 = initLinearModel();
+		lineModel = initLinearModel();
 
-		Axis yAxis = lineModel1.getAxis(AxisType.Y);
+		Axis yAxis = lineModel.getAxis(AxisType.Y);
 		yAxis.setMin(0);
 		yAxis.setMax(10);
 
-		lineModel1 = initCategoryModel();
-		//lineModel1.setTitle("Relatório Mensal");
-		lineModel1.setLegendPosition("e");
-		lineModel1.setShowPointLabels(true);
-		lineModel1.getAxes().put(AxisType.X, new CategoryAxis(""));
-		yAxis = lineModel1.getAxis(AxisType.Y);
+		lineModel = initCategoryModel();
+		// lineModel1.setTitle("Relatório Mensal");
+		lineModel.setLegendPosition("e");
+		lineModel.setShowPointLabels(true);
+		lineModel.getAxes().put(AxisType.X, new CategoryAxis(""));
+		yAxis = lineModel.getAxis(AxisType.Y);
 		yAxis.setLabel("Consumo R$");
 		yAxis.setMin(0);
 		yAxis.setMax(200);
@@ -119,14 +112,22 @@ public class ChartView implements Serializable {
 	private LineChartModel initCategoryModel() {
 		LineChartModel model = new LineChartModel();
 
-		ChartSeries boys = new ChartSeries();
-		boys.setLabel("Linha de Consumo");
-		boys.set("Janeiro", 120);
-		boys.set("Feveiro", 100);
-		boys.set("Marco", 44);
-		boys.set("Abril", 150);
-
-		model.addSeries(boys);
+		ChartSeries mes = new ChartSeries();
+		mes.setLabel("Linha de Consumo");
+		mes.set("Janeiro", 50);
+		mes.set("Feveiro", 170);
+		mes.set("Marco", 80);
+		mes.set("Abril", 35);
+		mes.set("Maio", 50);
+		mes.set("Junho", 170);
+		mes.set("Julho", 80);
+		mes.set("Agosto", 35);
+		mes.set("Setembro", 35);
+		mes.set("Outrubro", 35);
+		mes.set("Novembro", 35);
+		mes.set("Dezembro", 35);
+		
+		model.addSeries(mes);
 
 		return model;
 	}
@@ -146,15 +147,13 @@ public class ChartView implements Serializable {
 
 		return model;
 	}
-	public LineChartModel getLineModel1() {
-		return lineModel1;
+
+	public LineChartModel getLineModel() {
+		return lineModel;
 	}
 
-	
+	// ###################################################################################################################//
 
-	
-	//###################################################################################################################//
-	
 	// DESCOBRIR O QUE É ESTÁ FUNCAO//
 	public void itemSelect(ItemSelectEvent event) {
 		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Item selected",
