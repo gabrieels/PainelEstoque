@@ -24,7 +24,7 @@ import java.util.List;
 public class ChartView implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private LineChartModel lineModel;
+	//private LineChartModel lineModel;
 	private MeterGaugeChartModel meterGaugeModel;
 	private PieChartModel pieModel;
 	int A = 20;
@@ -34,7 +34,7 @@ public class ChartView implements Serializable {
 	public void init() {
 		createMeterGaugeModels();
 		createPieModels();
-		createLineModels();
+		//createLineModels();
 
 	}
 
@@ -91,7 +91,7 @@ public class ChartView implements Serializable {
 
 	// ####################################################################################################\\
 	// View do Relatorio Mensal
-	private void createLineModels() {
+/*	private void createLineModels() {
 		lineModel = initLinearModel();
 
 		Axis yAxis = lineModel.getAxis(AxisType.Y);
@@ -107,9 +107,9 @@ public class ChartView implements Serializable {
 		yAxis.setLabel("Consumo R$");
 		yAxis.setMin(0);
 		yAxis.setMax(200);
-	}
+	}*/
 
-	private LineChartModel initCategoryModel() {
+/*	private LineChartModel initCategoryModel() {
 		LineChartModel model = new LineChartModel();
 
 		ChartSeries mes = new ChartSeries();
@@ -131,8 +131,8 @@ public class ChartView implements Serializable {
 
 		return model;
 	}
-
-	private LineChartModel initLinearModel() {
+*/
+	/*private LineChartModel initLinearModel() {
 		LineChartModel model = new LineChartModel();
 		LineChartSeries series2 = new LineChartSeries();
 		series2.setLabel("Series 2");
@@ -151,7 +151,7 @@ public class ChartView implements Serializable {
 	public LineChartModel getLineModel() {
 		return lineModel;
 	}
-
+*/
 	// ###################################################################################################################//
 
 	// DESCOBRIR O QUE É ESTÁ FUNCAO//
