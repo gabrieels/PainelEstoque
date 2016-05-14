@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Painel de Estoque</title>
+	<link rel="shortcut icon" href="icon.jpg" />
+</h:head>
+<h:body>
+	<!-- Grafico da Curva ABC -->
+	<h:form>
+
+
+		<p:layout fullPage="true">
+
+			<p:layoutUnit position="north" size="100" style="border:0;">
+				<h:outputText value="North unit content." />
+			</p:layoutUnit>
+
+			<p:layoutUnit position="south" size="100" style="border:0;" >
+						<p:panel header="Relatório Mensal">
+					<!--Grafico do Relatorio Mensal -->
+					<p:chart type="line" model="#{relatorioController.lineModel}"
+						style="height:300px;" />
+				</p:panel>
+			</p:layoutUnit>
+
+			<p:layoutUnit position="west" size="500" style="border:0;">
+					<p:panel header="Curva ABC" style="float: left">
+				<p:chart type="pie" model="#{curvaAbcController.pieModel}"
+					style="width:450px;height:300px">
+				</p:chart>
+
+			</p:panel>
+			</p:layoutUnit>
+
+			<p:layoutUnit position="east" size="500" style="border:0;" >
+							<p:panel header="Indicadores" style="float: right;">
+				
+				<p:chart type="metergauge"
+					model="#{indicadorController.meterGaugeModel}"
+					style="width:450px;height:300px">
+				</p:chart>
+			</p:panel>
+			</p:layoutUnit>
+
+			<p:layoutUnit position="center" size="1" style="border:0;">
+
+			</p:layoutUnit>
+
+		</p:layout>
+
+
+
+
+	</h:form>
+</h:body>
+</html>

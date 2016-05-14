@@ -9,7 +9,7 @@
 	<link rel="shortcut icon" href="icon.ico" />
 </h:head>
 <h:body>
-	<!-- Grafico da Curva ABC -->	
+	<!-- Grafico da Curva ABC -->
 	<h:form>
 		<p:growl id="growl" showDetail="true" />
 		<h:panelGrid style="position: relative">
@@ -17,17 +17,16 @@
 				<p:chart type="pie" model="#{curvaAbcController.pieModel}"
 					style="width:450px;height:300px">
 				</p:chart>
-			
+
 			</p:panel>
 
 			<!--  <p:commandButton value="Salvar" disabled="false" image="ui-icon-disk"/> -->
 
 			<!-- Grafico dos Indicadores -->
 			<p:panel header="Indicadores" style="float: right;">
-				<div align="right">
-					<a href="#"><img src="src/Imagens/exibirdetalhes.jpg" /></a>
-				</div>
-				<p:chart type="metergauge" model="#{indicadorController.meterGaugeModel}"
+				<div align="right"></div>
+				<p:chart type="metergauge"
+					model="#{indicadorController.meterGaugeModel}"
 					style="width:450px;height:300px">
 				</p:chart>
 			</p:panel>

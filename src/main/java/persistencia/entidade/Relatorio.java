@@ -25,7 +25,7 @@ public class Relatorio implements Serializable {
 	@Column(name = "dt_saida")
 	private Timestamp dtSaida;
 
-	@Column(name = "in_qnt_saida")
+	@Column(name = "qnt_saida")
 	private Integer qnt_saida;
 
 	@Column(name = "db_preco_medio")

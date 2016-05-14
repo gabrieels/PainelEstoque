@@ -27,8 +27,8 @@ public class MaterialDAO {
 				material.setDescricao(resultado.getString("cv_descricao"));
 				material.setFamilia(resultado.getString("cv_familia"));
 				material.setPrecoMedio(resultado.getDouble("db_preco_medio"));
-				material.setVencimento(resultado.getTimestamp("dt_vencimento"));
-				material.setQntEstoque(resultado.getInt("nu_qnt_estoque"));
+				//material.setVencimento(resultado.getTimestamp("dt_vencimento"));
+				//material.setQntEstoque(resultado.getInt("nu_qnt_estoque"));
 				material.setQntMinima(resultado.getInt("nu_qnt_minima"));
 				material.setTipoMaterial(resultado.getString("tp_material"));
 				material.setUnidade(resultado.getString("und_material"));

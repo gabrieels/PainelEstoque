@@ -45,7 +45,7 @@ public class RelatorioController implements Serializable {
         lineModel.setTitle(obterAno());
         lineModel.setLegendPosition("e");
         lineModel.setShowPointLabels(true);
-        lineModel.getAxes().put(AxisType.X, new CategoryAxis("Years"));
+        lineModel.getAxes().put(AxisType.X, new CategoryAxis(""));
         yAxis = lineModel.getAxis(AxisType.Y);
         yAxis.setLabel("Consumo");
         yAxis.setMin(0);
@@ -57,7 +57,8 @@ public class RelatorioController implements Serializable {
  
         LineChartSeries series = new LineChartSeries();
         series.setLabel("Linha de consumo");
-                
+        
+                        
         series.set("Janeiro", 2);
         series.set("Fevereiro", 3);
         series.set("Março", 10);

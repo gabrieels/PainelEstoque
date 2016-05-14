@@ -7,10 +7,10 @@ import persistencia.entidade.Material;
 import persistencia.entidade.Relatorio;
 
 public class teste {
-//123
+
 	public static void main(String[] args) {
-		testGerarRelatorio();
-		//testBuscarTodos();
+		//testGerarRelatorio();
+		testBuscarTodos();
 
 	}	
 		private static void testBuscarTodos() {

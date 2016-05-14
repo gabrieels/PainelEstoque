@@ -31,11 +31,11 @@ public class Material implements Serializable {
 	@Column(name="db_preco_medio")
 	private double preco_medio;
 
-	@Column(name="dt_vencimento")
-	private Timestamp vencimento;
+	//@Column(name="dt_vencimento")
+	//private Timestamp vencimento;
 
-	@Column(name="nu_qnt_estoque")
-	private Integer qnt_estoque;
+	//@Column(name="nu_qnt_estoque")
+	//private Integer qnt_estoque;
 
 	@Column(name="nu_qnt_minima")
 	private Integer qnt_minima;
@@ -92,7 +92,7 @@ public class Material implements Serializable {
 	public void setPrecoMedio(double preco_medio) {
 		this.preco_medio = preco_medio;
 	}
-
+	/*
 	public Timestamp getVencimento() {
 		return this.vencimento;
 	}
@@ -108,7 +108,7 @@ public class Material implements Serializable {
 	public void setQntEstoque(Integer qnt_estoque) {
 		this.qnt_estoque = qnt_estoque;
 	}
-
+	*/
 	public Integer getNuQntMinima() {
 		return this.qnt_minima;
 	}
@@ -151,8 +151,7 @@ public class Material implements Serializable {
 	@Override
 	public String toString() {
 		return "Material [idMaterial=" + idMaterial + ", descricao=" + descricao + ", familia=" + familia
-				+ ", preco_medio=" + preco_medio + ", vencimento=" + vencimento + ", qnt_estoque=" + qnt_estoque
-				+ ", qnt_minima=" + qnt_minima + ", tipo_material=" + tipo_material + ", unidade=" + unidade
+				+ ", preco_medio=" + preco_medio + ", qnt_minima=" + qnt_minima + ", tipo_material=" + tipo_material + ", unidade=" + unidade
 				+ ", tbCurvaAbcs=" + tbCurvaAbcs + ", tbIndicadors=" + tbIndicadors + ", tbRelatorios=" + tbRelatorios
 				+ "]";
 	}
