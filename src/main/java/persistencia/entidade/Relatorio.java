@@ -22,10 +22,26 @@ public class Relatorio implements Serializable {
 	@Column(name = "id_material")
 	private Integer idMaterial;
 
+	public String getMes_saida() {
+		return mes_saida;
+	}
+
+	public void setMes_saida(String mes_saida) {
+		this.mes_saida = mes_saida;
+	}
+
 	@Column(name = "dt_saida")
 	private Timestamp dtSaida;
 
-	@Column(name = "qnt_saida")
+	public Double getValor_consumido() {
+		return valor_consumido;
+	}
+
+	public void setValor_consumido(Double valor_consumido) {
+		this.valor_consumido = valor_consumido;
+	}
+
+	@Column(name = "in_qnt_saida")
 	private Integer qnt_saida;
 
 	@Column(name = "db_preco_medio")
@@ -33,7 +49,13 @@ public class Relatorio implements Serializable {
 
 	@Column(name = "cv_descricao")
 	private String descricao;
-
+	
+	@Column(name = "dt_mes_saida")
+	private String mes_saida;
+	
+	@Column(name = "db_valor_consumido")
+	private Double valor_consumido;
+	
 	// bi-directional many-to-one association to Material
 	@ManyToOne
 	@JoinColumn(name = "id_material")
@@ -102,7 +124,8 @@ public class Relatorio implements Serializable {
 	public String toString() {
 		return "Relatorio [idRelatorio=" + idRelatorio + ", idMaterial=" + idMaterial + ", dtSaida=" + dtSaida
 				+ ", qnt_saida=" + qnt_saida + ", precoMedio=" + precoMedio + ", descricao=" + descricao
-				 + "]";
+				+ ", mes_saida=" + mes_saida + ", valor_consumido=" + valor_consumido + ", tbMaterial=" + tbMaterial
+				+ "]";
 	}
 
 }
