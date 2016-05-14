@@ -28,7 +28,9 @@ public class RelatorioDAO {
 				relatorio.setDescricao(resultado.getString("cv_descricao"));
 				relatorio.setPrecoMedio(resultado.getDouble("db_preco_medio"));
 				relatorio.setDtSaida(resultado.getTimestamp("dt_saida"));
-				relatorio.setQnt_saida(resultado.getInt("qnt_saida"));
+				relatorio.setQnt_saida(resultado.getInt("in_qnt_saida"));
+				relatorio.setMes_saida(resultado.getString("dt_mes_saida"));
+				relatorio.setValor_consumido(resultado.getDouble("db_valor_consumido"));
 				
 				// Adicionando usuario na lista
 				lista.add(relatorio);
