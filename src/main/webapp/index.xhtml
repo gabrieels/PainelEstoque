@@ -6,10 +6,10 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>Painel de Estoque</title>
-	<link rel="shortcut icon" href="icon.ico" />
+	<link rel="shortcut icon" href="pe.ico" type="icone.ico" />
 </h:head>
 <h:body>
-	<!-- Grafico da Curva ABC -->
+	<!-- Grafico da Curva ABC -->	
 	<h:form>
 		<p:growl id="growl" showDetail="true" />
 		<h:panelGrid style="position: relative">
@@ -17,16 +17,17 @@
 				<p:chart type="pie" model="#{curvaAbcController.pieModel}"
 					style="width:450px;height:300px">
 				</p:chart>
-
+			
 			</p:panel>
 
 			<!--  <p:commandButton value="Salvar" disabled="false" image="ui-icon-disk"/> -->
 
 			<!-- Grafico dos Indicadores -->
 			<p:panel header="Indicadores" style="float: right;">
-				<div align="right"></div>
-				<p:chart type="metergauge"
-					model="#{indicadorController.meterGaugeModel}"
+				<div align="right">
+					<a href="#"><img src="src/Imagens/exibirdetalhes.jpg" /></a>
+				</div>
+				<p:chart type="metergauge" model="#{indicadorController.meterGaugeModel}"
 					style="width:450px;height:300px">
 				</p:chart>
 			</p:panel>
@@ -34,15 +35,15 @@
 		</h:panelGrid>
 
 		<!-- Grafico do Relatório Mensal -->
+		<!--  
 		<div align="center">
 			<h:panelGrid style="margin-top:51px; width:80%">
-				<p:panel header="Relatório Mensal">
-					<!--Grafico do Relatorio Mensal -->
-					<p:chart type="line" model="#{relatorioController.lineModel}"
-						style="height:300px;" />
-				</p:panel>
+				
 			</h:panelGrid>
 		</div>
+		-->
+		<p:chart type="bar" model="#{relatorioController.lineModel}" style="height:300px"/>
+		
 	</h:form>
 </h:body>
 </html>
